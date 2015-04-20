@@ -18,8 +18,6 @@ public class ViewFlipperActivity extends Activity{
 
 	private GestureDetector gestureDetector = null;
 	private ViewFlipper viewFlipper = null;
-
-	private Activity mActivity = null;
 	
 	private BitmapUtil loadBitmap;
 	private final String LOCAL_PICTURE_PATH = Environment.getExternalStorageDirectory() +
@@ -32,8 +30,6 @@ public class ViewFlipperActivity extends Activity{
 		setContentView(R.layout.activity_view_flipper);
 		
 		buildImageDir();
-		
-		mActivity = this;
 
 		viewFlipper = (ViewFlipper) findViewById(R.id.viewflipper);
 		startFlipPictures();		
@@ -99,8 +95,8 @@ public class ViewFlipperActivity extends Activity{
 	}
 	
 	public void startRightFlipAnimation(){
-		Animation rInAnim = AnimationUtils.loadAnimation(mActivity, R.anim.push_right_in); 	
-		Animation rOutAnim = AnimationUtils.loadAnimation(mActivity, R.anim.push_right_out); 
+		Animation rInAnim = AnimationUtils.loadAnimation(this, R.anim.push_right_in); 	
+		Animation rOutAnim = AnimationUtils.loadAnimation(this, R.anim.push_right_out); 
 
 		viewFlipper.setInAnimation(rInAnim);
 		viewFlipper.setOutAnimation(rOutAnim);
@@ -108,8 +104,8 @@ public class ViewFlipperActivity extends Activity{
 	}
 	
 	public void startLeftFlipAnimation(){
-		Animation lInAnim = AnimationUtils.loadAnimation(mActivity, R.anim.push_left_in);	
-		Animation lOutAnim = AnimationUtils.loadAnimation(mActivity, R.anim.push_left_out); 	
+		Animation lInAnim = AnimationUtils.loadAnimation(this, R.anim.push_left_in);	
+		Animation lOutAnim = AnimationUtils.loadAnimation(this, R.anim.push_left_out); 	
 
 		viewFlipper.setInAnimation(lInAnim);
 		viewFlipper.setOutAnimation(lOutAnim);
